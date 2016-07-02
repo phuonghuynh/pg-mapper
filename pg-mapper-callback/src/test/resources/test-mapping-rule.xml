@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappingRule>
+   <mappingField name="amount" directions="rbk_host_inquiry">
+      <pattern>#0.00</pattern>
+      <maxLength>17</maxLength>
+      <converterClass>net.pg.mapper.core.converter.DoubleConverter</converterClass>
+   </mappingField>
+   <mappingField name="accountNo" directions="rbk_host_inquiry">
+      <pattern><![CDATA[(?<=\G.{3})]]></pattern>
+      <maxLength>13</maxLength>
+      <delemiter>-</delemiter>
+      <converterClass>net.pg.mapper.core.converter.TextSplitterConverter</converterClass>
+   </mappingField>
+   <mappingField name="tdNo" directions="rbk_host_inquiry,gtd_host_inquiry">
+      <pattern>000000</pattern>
+      <mappingType>left</mappingType>
+      <converterClass>net.pg.mapper.core.converter.MergeTextConverter</converterClass>
+   </mappingField>
+   <mappingField name="holdcode" directions="rbk_host_inquiry">
+      <pattern>00</pattern>
+      <mappingType>left</mappingType>
+      <converterClass>net.pg.mapper.core.converter.MergeTextConverter</converterClass>
+   </mappingField>
+   <mappingField name="holdcode" directions="gtd_host_inquiry">
+      <pattern><![CDATA[  ]]></pattern>
+      <mappingType>left</mappingType>
+      <converterClass>net.pg.mapper.core.converter.MergeTextConverter</converterClass>
+   </mappingField>
+</mappingRule>

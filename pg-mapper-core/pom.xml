@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <artifactId>pg-mapper</artifactId>
+      <groupId>net.pg</groupId>
+      <version>0.0.1</version>
+   </parent>
+
+   <artifactId>pg-mapper-core</artifactId>
+
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <jdk.version>1.6</jdk.version>
+   </properties>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>${jdk.version}</source>
+               <target>${jdk.version}</target>
+            </configuration>
+         </plugin>
+<!--          <plugin> -->
+<!--             <groupId>com.pyx4me</groupId> -->
+<!--             <artifactId>proguard-maven-plugin</artifactId> -->
+<!--             <executions> -->
+<!--                <execution> -->
+<!--                   <phase>package</phase> -->
+<!--                   <goals> -->
+<!--                      <goal>proguard</goal> -->
+<!--                   </goals> -->
+<!--                </execution> -->
+<!--             </executions> -->
+<!--             <configuration> -->
+<!--                <obfuscate>true</obfuscate> -->
+<!--                <options> -->
+<!--                   <option>-allowaccessmodification</option> -->
+<!--                   <option>-keep public interface ** </option> -->
+<!--                </options> -->
+<!--                <injar>${project.build.finalName}.jar</injar> -->
+<!--                <outjar>${project.build.finalName}-small.jar</outjar> -->
+<!--                <outputDirectory>${project.build.directory}</outputDirectory> -->
+<!--                <libs> -->
+<!--                   <lib>${java.home}/lib/rt.jar</lib> -->
+<!--                </libs> -->
+<!--             </configuration> -->
+<!--             <dependencies> -->
+<!--                <dependency> -->
+<!--                   <groupId>net.sf.proguard</groupId> -->
+<!--                   <artifactId>proguard</artifactId> -->
+<!--                   <version>4.4</version> -->
+<!--                   <scope>runtime</scope> -->
+<!--                </dependency> -->
+<!--             </dependencies> -->
+<!--          </plugin> -->
+      </plugins>
+      <extensions>
+         <extension>
+            <groupId>org.jvnet.wagon-svn</groupId>
+            <artifactId>wagon-svn</artifactId>
+         </extension>
+      </extensions>
+   </build>
+
+   <distributionManagement>
+      <repository>
+         <id>phuonghqh</id>
+         <url>svn:https://phuonghuynh-maven-repository.googlecode.com/svn/repository</url>
+         <layout>default</layout>
+      </repository>
+   </distributionManagement>
+</project>

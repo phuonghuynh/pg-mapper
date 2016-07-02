@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context" xmlns:jms="http://www.springframework.org/schema/jms"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <context:annotation-config />
+   <context:component-scan base-package="net.phg.mapper" />
+
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="ignoreUnresolvablePlaceholders" value="true" />
+      <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+      <property name="ignoreResourceNotFound" value="true" />
+      <property name="locations">
+         <list>
+            <value>classpath:test-appcontext.properties</value>
+         </list>
+      </property>
+   </bean>
+
+   <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+      <property name="classesToBeBound">
+         <list>
+            <value>net.pg.mapper.core.domain.MappingRule</value>
+         </list>
+      </property>
+   </bean>
+
+   <bean id="json2ObjectCallback" class="net.pg.mapper.callback.Json2ObjectCallback" />
+
+   <bean class="net.pg.mapper.factory.DomainMapperFactory" factory-method="createDomainMapper">
+      <constructor-arg value="${net.pg.rule.path}" />
+      <constructor-arg ref="json2ObjectCallback" />
+   </bean>
+
+</beans>

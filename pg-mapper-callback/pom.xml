@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <artifactId>pg-mapper</artifactId>
+      <groupId>net.pg</groupId>
+      <version>0.0.1</version>
+   </parent>
+
+   <artifactId>pg-mapper-callback</artifactId>
+
+   <dependencies>
+      <dependency>
+         <groupId>net.pg</groupId>
+         <artifactId>pg-mapper-core</artifactId>
+         <version>${version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.apache.sling</groupId>
+         <artifactId>org.apache.sling.commons.json</artifactId>
+         <version>2.0.6</version>
+      </dependency>
+
+      <dependency>
+         <groupId>com.googlecode.json-simple</groupId>
+         <artifactId>json-simple</artifactId>
+         <version>1.1.1</version>
+      </dependency>
+   </dependencies>
+
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <jdk.version>1.6</jdk.version>
+   </properties>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>${jdk.version}</source>
+               <target>${jdk.version}</target>
+            </configuration>
+         </plugin>
+      </plugins>
+      <extensions>
+         <extension>
+            <groupId>org.jvnet.wagon-svn</groupId>
+            <artifactId>wagon-svn</artifactId>
+         </extension>
+      </extensions>
+   </build>
+
+   <distributionManagement>
+      <repository>
+         <id>phuonghqh</id>
+         <url>svn:https://phuonghuynh-maven-repository.googlecode.com/svn/repository</url>
+         <layout>default</layout>
+      </repository>
+   </distributionManagement>
+</project>
